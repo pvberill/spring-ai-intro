@@ -1,5 +1,7 @@
 package guru.springframework.springaiintro.services;
 
+import guru.springframework.springaiintro.model.CapitalInfoResponse;
+import guru.springframework.springaiintro.model.GetCapitalRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,5 +22,13 @@ class OpenAIServiceImplTest {
                 "and the two men are both 19.");
         System.out.println("Got the answer");
         System.out.println(answer);
+    }
+
+    @Test
+    void getCapitalInfo() {
+        final CapitalInfoResponse capitalInfoResponse
+                = openAIService.getCapitalWithInfo(new GetCapitalRequest("Ukraine"));
+        System.out.println("Got the answer");
+        System.out.println(capitalInfoResponse);
     }
 }
